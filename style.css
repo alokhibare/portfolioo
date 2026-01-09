@@ -1,0 +1,206 @@
+:root {
+    --accent: #3b82f6;
+    --card-bg: rgba(10, 10, 10, 0.8);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #020202;
+    color: #ffffff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.tech-mono {
+    font-family: 'Space Mono', monospace;
+}
+
+/* --- SOCIAL SIDEBAR --- */
+.social-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 110;
+}
+
+.social-sidebar::after {
+    content: '';
+    width: 1px;
+    height: 100px;
+    background: rgba(59, 130, 246, 0.3);
+    margin: 0 auto;
+}
+
+.social-link {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease;
+}
+
+.social-link:hover {
+    color: var(--accent);
+    transform: translateY(-5px);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+/* --- EXISTING STYLES --- */
+.hero-glow {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65vw;
+    height: 65vw;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 70%);
+    filter: blur(90px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.glass-nav {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.work-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    perspective: 1000px;
+}
+
+.work-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #000;
+}
+
+.project-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    opacity: 0.4;
+    transition: all 0.7s ease;
+    filter: grayscale(100%) brightness(0.6);
+    pointer-events: none;
+}
+
+.work-card:hover .project-iframe {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+    pointer-events: auto;
+}
+
+.scanline {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(59, 130, 246, 0.4);
+    top: -10px;
+    left: 0;
+    z-index: 10;
+    animation: scan 3s linear infinite;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+@keyframes scan {
+    0% {
+        top: -10%;
+    }
+
+    100% {
+        top: 110%;
+    }
+}
+
+.tech-tag {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    transition: 0.3s;
+}
+
+.work-card:hover .tech-tag {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.cyber-btn {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    transition: 0.4s;
+}
+
+.cyber-btn:hover {
+    background: var(--accent);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    color: white;
+}
+
+/* --- MOBILE MENU --- */
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #3b82f6;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+#mobile-menu {
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    transform: translateX(100%);
+    background: rgba(2, 2, 2, 0.98);
+    backdrop-filter: blur(20px);
+}
+
+#mobile-menu.active {
+    transform: translateX(0);
+}
+
+#success-popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #3b82f6;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    z-index: 200;
+    font-family: 'Space Mono', monospace;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
