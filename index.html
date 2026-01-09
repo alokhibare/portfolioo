@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alok Hibare | Full Portfolio</title>
+    <title>Alok Hibare | Full-Stack Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Mono&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -13,8 +13,11 @@
 </head>
 <body>
 
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+
     <canvas id="bg-canvas"></canvas>
-    <div id="success-popup">> SYSTEM: MESSAGE_DECRYPTED_&_SENT</div>
+    <div id="success-popup">> HANDSHAKE_COMPLETE: DATA_SENT</div>
     <div class="hero-glow"></div>
 
     <div class="hidden md:flex social-sidebar" data-aos="fade-up" data-aos-delay="1000">
@@ -23,21 +26,29 @@
         <a href="mailto:a.l.mith.hib@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
     </div>
 
-    <div id="mobile-menu" class="fixed inset-0 z-[105] flex flex-col items-center justify-center gap-8 text-2xl tech-mono uppercase font-bold tracking-widest">
-        <a href="#" onclick="toggleMenu()" class="hover:text-blue-500 transition">01. Home</a>
-        <a href="#work" onclick="toggleMenu()" class="hover:text-blue-500 transition">02. Work</a>
-        <a href="#skills" onclick="toggleMenu()" class="hover:text-blue-500 transition">03. Tech</a>
-        <a href="#contact" onclick="toggleMenu()" class="hover:text-blue-500 transition">04. Contact</a>
+    <div id="mobile-menu" class="fixed inset-0 z-[105] flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center gap-8 text-2xl tech-mono uppercase font-bold tracking-widest mb-12">
+            <a href="#" onclick="toggleMenu()" class="mobile-nav-link">01. Home</a>
+            <a href="#work" onclick="toggleMenu()" class="mobile-nav-link">02. Work</a>
+            <a href="#skills" onclick="toggleMenu()" class="mobile-nav-link">03. Tech</a>
+            <a href="#contact" onclick="toggleMenu()" class="mobile-nav-link">04. Contact</a>
+        </div>
         
-        <div class="flex gap-8 mt-8 border-t border-blue-500/20 pt-8">
-            <a href="https://github.com/alokhibare" target="_blank" class="text-blue-500 text-3xl"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/alok-hibare-330722285/" target="_blank" class="text-blue-500 text-3xl"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://drive.google.com/file/d/1sWuFHvMaUlR-DizaHQyy2BQQXStDlY_9/view?usp=sharing" target="_blank" class="text-blue-500 text-3xl"><i class="fas fa-file-pdf"></i></a>
+        <a href="https://drive.google.com/file/d/1sWuFHvMaUlR-DizaHQyy2BQQXStDlY_9/view?usp=sharing" 
+           target="_blank" 
+           class="tech-mono text-[11px] border border-blue-500/40 px-10 py-4 mb-12 hover:bg-blue-500 hover:text-white transition-all uppercase font-bold tracking-widest bg-blue-500/5">
+           Resume_v2 ↗
+        </a>
+
+        <div class="flex gap-10 items-center pt-10 border-t border-white/5 w-64 justify-center">
+            <a href="https://github.com/alokhibare" target="_blank" class="text-2xl text-gray-400 hover:text-blue-500 transition-all"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/alok-hibare-330722285/" target="_blank" class="text-2xl text-gray-400 hover:text-blue-500 transition-all"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:a.l.mith.hib@gmail.com" class="text-2xl text-gray-400 hover:text-blue-500 transition-all"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
 
     <header class="fixed top-0 w-full z-[110] px-6 py-6 flex justify-between items-center">
-        <div class="text-2xl font-black tracking-tighter text-blue-500">AH</div>
+        <div class="text-2xl font-black tracking-tighter text-blue-500 glitch-text cursor-pointer">ALOK</div>
         <nav class="hidden md:block fixed left-1/2 -translate-x-1/2">
             <div class="glass-nav flex items-center gap-8 px-10 py-3 rounded-full text-[10px] tech-mono uppercase tracking-widest">
                 <a href="#" class="hover:text-blue-400 transition">01. Home</a>
@@ -46,20 +57,17 @@
                 <a href="#contact" class="hover:text-blue-400 transition">04. Contact</a>
             </div>
         </nav>
-        
         <div class="flex items-center gap-4">
-            <a href="https://drive.google.com/file/d/1sWuFHvMaUlR-DizaHQyy2BQQXStDlY_9/view?usp=sharing" target="_blank" class="hidden md:block tech-mono text-[9px] border border-blue-500/40 px-4 py-2 hover:bg-blue-500 hover:text-white transition uppercase font-bold tracking-tighter">Resume</a>
-            
+            <a href="https://drive.google.com/file/d/1sWuFHvMaUlR-DizaHQyy2BQQXStDlY_9/view?usp=sharing" target="_blank" class="hidden md:block tech-mono text-[9px] border border-blue-500/40 px-4 py-2 hover:bg-blue-500 hover:text-white transition uppercase font-bold tracking-tighter">Resume_v2</a>
             <button class="hamburger md:hidden block z-[120]" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
             </button>
-            <div class="hidden md:block tech-mono text-[9px] text-blue-500 opacity-50 tracking-tighter">ENCRYPTION: AES-256_ACTIVE</div>
         </div>
     </header>
 
-    <section class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
-        <div data-aos="fade-down" class="tech-mono text-[11px] text-blue-500 mb-6 tracking-[0.5em] uppercase">Initializing Your Ideas v2.0</div>
-        <h1 data-aos="zoom-out-up" data-aos-duration="1500" class="text-6xl md:text-[10rem] font-black tracking-tighter mb-8 leading-[0.85]">
+    <section class="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
+        <div data-aos="fade-down" class="tech-mono text-[11px] text-blue-500 mb-6 tracking-[0.5em] uppercase">Booting Architecture... Secure_Node_Active</div>
+        <h1 id="scramble-text" class="text-6xl md:text-[10rem] font-black tracking-tighter mb-8 leading-[0.85] select-none">
             ALOK <br> <span class="text-transparent" style="-webkit-text-stroke: 1px rgba(255,255,255,0.3);">HIBARE</span>
         </h1>
         <p data-aos="fade-up" data-aos-delay="400" class="max-w-xl text-gray-400 tech-mono text-xs md:text-sm mb-12 leading-relaxed opacity-80">
@@ -91,7 +99,7 @@
                     </div>
                 </div>
                 <h3 class="text-xl font-bold mb-2 tech-mono uppercase text-blue-400">V1_PORTFOLIO</h3>
-                <p class="text-gray-500 text-[11px] tech-mono mb-6 leading-relaxed">Legacy architecture featuring complex animation mapping and asset management.</p>
+                <p class="text-gray-500 text-[11px] tech-mono mb-6 leading-relaxed">Legacy architecture featuring complex animation mapping.</p>
                 <div class="flex gap-2 mb-6">
                     <span class="px-3 py-1 tech-tag rounded-md text-[9px] tech-mono uppercase">Core_UI</span>
                     <span class="px-3 py-1 tech-tag rounded-md text-[9px] tech-mono uppercase">GSAP</span>
@@ -103,15 +111,11 @@
                 <div class="h-64 mb-8 iframe-container group">
                     <div class="scanline"></div>
                     <iframe src="https://alokhibare.github.io/myntraa" class="project-iframe" loading="lazy"></iframe>
-                    <div class="absolute top-4 right-4 flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping"></span>
-                        <span class="tech-mono text-[8px] text-blue-500">LIVE_LINK</span>
-                    </div>
                 </div>
                 <h3 class="text-xl font-bold mb-2 tech-mono uppercase text-blue-400">COMMERCE_LAB</h3>
-                <p class="text-gray-500 text-[11px] tech-mono mb-6 leading-relaxed">E-commerce grid logic and responsive product architecture simulation.</p>
+                <p class="text-gray-500 text-[11px] tech-mono mb-6 leading-relaxed">E-commerce grid logic and responsive architecture.</p>
                 <div class="flex gap-2 mb-6">
-                    <span class="px-3 py-1 tech-tag rounded-md text-[9px] tech-mono uppercase">React_Flow</span>
+                    <span class="px-3 py-1 tech-tag rounded-md text-[9px] tech-mono uppercase">React</span>
                     <span class="px-3 py-1 tech-tag rounded-md text-[9px] tech-mono uppercase">Grid_SYS</span>
                 </div>
                 <a href="https://alokhibare.github.io/myntraa" target="_blank" class="block w-full text-center py-3 cyber-btn text-[9px] tech-mono uppercase font-bold text-blue-500">Initialize_Full_View ↗</a>
@@ -121,13 +125,9 @@
                 <div class="h-64 mb-8 iframe-container group">
                     <div class="scanline"></div>
                     <iframe src="https://alokhibare.github.io/thedailygrind" class="project-iframe" loading="lazy"></iframe>
-                    <div class="absolute top-4 right-4 flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping"></span>
-                        <span class="tech-mono text-[8px] text-blue-500">LIVE_LINK</span>
-                    </div>
                 </div>
                 <h3 class="text-xl font-bold mb-2 tech-mono uppercase text-blue-400">EDITORIAL_CORE</h3>
-                <p class="text-gray-500 text-[11px] tech-mono mb-6 leading-relaxed">High-fidelity typography engine and content delivery framework.</p>
+                <p class="text-gray-500 text-[11px] tech-mono mb-6 leading-relaxed">High-fidelity typography engine and content delivery.</p>
                 <div class="flex gap-2 mb-6">
                     <span class="px-3 py-1 tech-tag rounded-md text-[9px] tech-mono uppercase">Motion_JS</span>
                     <span class="px-3 py-1 tech-tag rounded-md text-[9px] tech-mono uppercase">Type_Set</span>
@@ -139,12 +139,14 @@
 
     <section id="skills" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up">React</div>
-            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="50">Node.js</div>
-            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="100">Tailwind</div>
-            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="150">Figma</div>
-            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="200">Git</div>
-            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="250">AWS</div>
+            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up">HTML5</div>
+            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="100">CSS3</div>
+            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="200">java Script </div>
+            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="300">Java</div>
+            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="400">Figma</div>
+            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="500">Git</div>
+            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="600">c</div>
+            <div class="tech-tag p-6 rounded-xl text-center tech-mono text-xs uppercase tracking-widest" data-aos="fade-up" data-aos-delay="800">VS Code</div>
         </div>
     </section>
 
@@ -169,14 +171,44 @@
     <script>
         AOS.init({ duration: 1000, once: false });
 
-        function toggleMenu() {
-            document.getElementById('mobile-menu').classList.toggle('active');
-            document.querySelector('.hamburger').classList.toggle('open');
-        }
+        // --- MOUSE PHYSICS & CURSOR ---
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorOutline = document.getElementById('cursor-outline');
+        let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
 
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        function animateCursor() {
+            let distX = mouseX - outlineX;
+            let distY = mouseY - outlineY;
+            outlineX += distX * 0.15;
+            outlineY += distY * 0.15;
+            cursorOutline.style.left = outlineX + 'px';
+            cursorOutline.style.top = outlineY + 'px';
+            
+            const velocity = Math.sqrt(distX*distX + distY*distY);
+            const scale = 1 + Math.min(velocity/100, 0.5);
+            cursorOutline.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // --- ENHANCED INTERACTIVE BACKGROUND ---
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
 
         function resize() {
             canvas.width = window.innerWidth;
@@ -187,63 +219,150 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
+                this.size = Math.random() * 2 + 0.5;
+                this.density = (Math.random() * 30) + 1;
+                this.speedX = Math.random() * 0.6 - 0.3;
+                this.speedY = Math.random() * 0.6 - 0.3;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
+
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius) {
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    this.x -= (dx / distance) * force * this.density;
+                    this.y -= (dy / distance) * force * this.density;
+                }
             }
             draw() {
-                ctx.fillStyle = '#3b82f6';
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
-        function init() {
+        function initParticles() {
             particles = [];
-            for (let i = 0; i < 90; i++) particles.push(new Particle());
+            let numberOfParticles = (canvas.width * canvas.height) / 15000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle());
+            }
         }
 
-        function animate() {
+        function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    let distance = ((particles[a].x - particles[b].x) ** 2 + (particles[a].y - particles[b].y) ** 2) ** 0.5;
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < 150) {
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 - distance/1000})`;
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${1 - (distance/150)})`;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.stroke();
                     }
                 }
             }
-            requestAnimationFrame(animate);
+            requestAnimationFrame(animateParticles);
         }
 
-        window.addEventListener('resize', resize);
-        resize();
-        init();
-        animate();
+        window.addEventListener('resize', () => { resize(); initParticles(); });
+        resize(); initParticles(); animateParticles();
+
+        // --- SCRIPTS (Tilt, Scramble, UI) ---
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        document.querySelectorAll('.work-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                let rect = card.getBoundingClientRect();
+                let x = e.clientX - rect.left;
+                let y = e.clientY - rect.top;
+                let dx = (x - rect.width/2) / (rect.width/2);
+                let dy = (y - rect.height/2) / (rect.height/2);
+                card.style.transform = `perspective(1000px) rotateY(${dx * 12}deg) rotateX(${-dy * 12}deg) translateY(-10px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateY(0) rotateX(0) translateY(0)`;
+            });
+        });
+
+        class TextScramble {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\\/[]{}—=+*^?#_ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ';
+                this.update = this.update.bind(this);
+            }
+            setText(newText) {
+                const oldText = this.el.innerText;
+                const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise((resolve) => this.resolve = resolve);
+                this.queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40);
+                    const end = start + Math.floor(Math.random() * 40);
+                    this.queue.push({ from, to, start, end });
+                }
+                cancelAnimationFrame(this.frameRequest);
+                this.frame = 0;
+                this.update();
+                return promise;
+            }
+            update() {
+                let output = '';
+                let complete = 0;
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.chars[Math.floor(Math.random() * this.chars.length)];
+                            this.queue[i].char = char;
+                        }
+                        output += `<span class="text-blue-500 opacity-60">${char}</span>`;
+                    } else {
+                        output += from;
+                    }
+                }
+                this.el.innerHTML = output;
+                if (complete === this.queue.length) {
+                    this.resolve();
+                } else {
+                    this.frameRequest = requestAnimationFrame(this.update);
+                    this.frame++;
+                }
+            }
+        }
+
+        const scrambleTitle = document.getElementById('scramble-text');
+        const fx = new TextScramble(scrambleTitle);
+        fx.setText("ALOK\nHIBARE");
 
         function handleSubmit(e) {
             e.preventDefault();
             const popup = document.getElementById('success-popup');
             popup.style.display = 'block';
-            setTimeout(() => { popup.style.display = 'none'; }, 3000);
+            setTimeout(() => { popup.style.display = 'none'; }, 4000);
             e.target.reset();
         }
     </script>
